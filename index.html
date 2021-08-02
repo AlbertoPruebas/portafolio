@@ -2,12 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/index.css">
     <title>Alberto Soto "El Bto"</title>
 </head>
 <body>
-    <div class="welcome">Hola!<br>Soy Alberto Soto, te invito a conocerme!</div>
-    <div class="about">Tengo 33 años y soy un aficionado a la tecnologia y todo lo que esto le rodea.</div>
-    <div class="proyects">Te muestro algunos de los proyectos que he realizado</div>
+    <div class="menu" onclick="this.classList.toggle('open')">
+        <div class="button" id="projectsBtn" alt="Proyectos"></div>
+        <div class="button" id="infoBtn" alt="Informacion"></div>
+        <div class="button" id="curriculumBtn" alt="Curriculum"></div>
+      </div>
+    <div id="welcome">
+        <h1>Hola!<br>Soy Alberto Soto<br>Desarrollador<br>Te invito a conocerme!</h1>
+    </div>
+    <div id="about">Tengo 33 años y soy un aficionado a la tecnologia y todo lo que esto le rodea.</div>
+    <div id="projects">Te muestro algunos de los proyectos que he realizado</div>
+    <div id="contact">
+        <div id="myData">
+            <label>Dejame tus datos y yo me comunicare contigo</label>
+            <button id="createContact">Contactar</button>
+        </div>
+    </div>
+    <script src="./scr/index.js"></script>
+    <script src="./scr/dinamycElements.js"></script>
 </body>
 </html>

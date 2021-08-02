@@ -1,0 +1,175 @@
+:root {
+    --myBlue: #1100ac;
+    --myRed: #b10f0f;
+    --myGreen: #2ecc71;
+    --myWhite: #ffebcd;
+    --myGrey: #191919;
+}
+
+body {
+    background: -webkit-gradient(linear, left top, left bottom, from(#141e30), to(#243b55)) fixed;
+    display: inline;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    font-family: calibri;
+    color: var(--myWhite);
+}
+
+.menu {
+    position: relative;
+    top: 20px;
+    left: 50px;
+    width: 0px;
+    padding: 30px;
+    background: var(--myGrey);
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.menu::before, .menu::after {
+    content: "";
+    background: var(--myRed);
+    border-radius: 5px;
+    width: 30px;
+    height: 5px;
+    position: absolute;
+    left: 16px;
+    top: 27px;
+    transition: 0.2s ease;
+    z-index: 1;
+}
+
+.menu::before {
+    transform: rotate(0deg);
+}
+
+.menu::after {
+    transform: rotate(-90deg);
+}
+
+.menu.open {
+    opacity: 0.9;
+}
+
+.menu.open::before {
+    transform: rotate(45deg);
+}
+
+.menu.open::after {
+    transform: rotate(-45deg);
+}
+
+.menu.open .button {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#projectsBtn {
+    top: 0px;
+    left: 95px;
+    background: url("/img/workImg.svg") no-repeat 50% 45%/50% 45% var(--myGrey);
+}
+
+#curriculumBtn {
+    top: 80px;
+    background: url("/img/downloadImg.svg") no-repeat 50% 45%/50% 45% var(--myGrey);
+    transition-delay: 0.05s;
+  }
+  
+#infoBtn {
+    top: 55px;
+    left: 60px;
+    background: url("/img/infoImg.svg") no-repeat 50% 45%/50% 45% var(--myGrey);
+    transition-delay: 0.1s;
+}
+  
+.button {
+    padding: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: var(--myBlue);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: inherit;
+    transition: 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28), 0.2s ease opacity, 0.2s cubic-bezier(0.08, 0.82, 0.17, 1) transform;
+}
+
+.button:hover {
+    transform: scale(1.1);
+}
+
+#modalBckgrnd {
+	background: rgba(0, 0, 0, 0.3);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	z-index: 10000;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: opacity .4s;
+    opacity: 0;
+    outline: none;
+}
+
+#modalElements {
+	position: relative;
+	width: 250px;
+	max-height: 200px;
+    border-radius: 25px;
+	background: var(--myGrey);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.contactData{
+    background: none;
+    margin: 5px;
+    text-align: center;
+    border: 2px solid var(--myRed);
+    padding: 5px;
+    width: 160px;
+    outline: none;
+    color: var(--myWhite);
+    border-radius: 24px;
+    transition: all .2s linear;
+}
+
+.contactData:focus{
+    width: 200px;
+    border-color: var(--myBlue);
+}
+
+#btnClose {
+    background: var(--myGrey);
+    border: 3px solid #999;
+    color: var(--verde);
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    font-family: arial;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 25px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    align-items: center;
+}
+
+#btnClose:hover{
+    background-color: #999;
+    color: black;
+}
