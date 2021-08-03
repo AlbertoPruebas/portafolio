@@ -4,6 +4,7 @@
     --myGreen: #2ecc71;
     --myWhite: #ffebcd;
     --myGrey: #191919;
+    --greenTerminal: #00ff00bf;
 }
 
 body {
@@ -14,92 +15,6 @@ body {
     margin: 0;
     font-family: calibri;
     color: var(--myWhite);
-}
-
-.menu {
-    position: relative;
-    top: 20px;
-    left: 50px;
-    width: 0px;
-    padding: 30px;
-    background: var(--myGrey);
-    border-radius: 50px;
-    cursor: pointer;
-}
-
-.menu::before, .menu::after {
-    content: "";
-    background: var(--myRed);
-    border-radius: 5px;
-    width: 30px;
-    height: 5px;
-    position: absolute;
-    left: 16px;
-    top: 27px;
-    transition: 0.2s ease;
-    z-index: 1;
-}
-
-.menu::before {
-    transform: rotate(0deg);
-}
-
-.menu::after {
-    transform: rotate(-90deg);
-}
-
-.menu.open {
-    opacity: 0.9;
-}
-
-.menu.open::before {
-    transform: rotate(45deg);
-}
-
-.menu.open::after {
-    transform: rotate(-45deg);
-}
-
-.menu.open .button {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-#projectsBtn {
-    top: 0px;
-    left: 95px;
-    background: url("/img/workImg.svg") no-repeat 50% 45%/50% 45% var(--myGrey);
-}
-
-#curriculumBtn {
-    top: 80px;
-    background: url("/img/downloadImg.svg") no-repeat 50% 45%/50% 45% var(--myGrey);
-    transition-delay: 0.05s;
-  }
-  
-#infoBtn {
-    top: 55px;
-    left: 60px;
-    background: url("/img/infoImg.svg") no-repeat 50% 45%/50% 45% var(--myGrey);
-    transition-delay: 0.1s;
-}
-  
-.button {
-    padding: 30px;
-    border-radius: 50%;
-    cursor: pointer;
-    background: var(--myBlue);
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    opacity: 0;
-    pointer-events: none;
-    box-shadow: inherit;
-    transition: 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28), 0.2s ease opacity, 0.2s cubic-bezier(0.08, 0.82, 0.17, 1) transform;
-}
-
-.button:hover {
-    transform: scale(1.1);
 }
 
 #modalBckgrnd {

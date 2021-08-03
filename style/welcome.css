@@ -1,0 +1,50 @@
+
+#welcome {
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 30px;
+}
+
+.console {
+    background-color: #151515;
+    box-sizing: border-box;
+    width: 900px;
+    height: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+}
+  
+.line {
+    display: block;
+    font-size: 2em;
+    margin: 25px 0px;
+    font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+}
+
+.lineTerminal {
+    display: inline;
+    margin: 25px 0px;
+}
+
+#cursor {
+    font-size: 2em;
+    margin: 25px 5px;
+    color: var(--greenTerminal);
+    font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+    animation: animated-cursor 1s infinite;
+}
+
+@keyframes animated-cursor {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}

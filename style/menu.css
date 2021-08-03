@@ -1,0 +1,89 @@
+.menu {
+    position: sticky;
+    top: 20px;
+    left: 50px;
+    width: 0px;
+    padding: 30px;
+    background: var(--myGrey);
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.menu::before, .menu::after {
+    content: "";
+    background: var(--myRed);
+    border-radius: 5px;
+    width: 30px;
+    height: 5px;
+    position: absolute;
+    left: 16px;
+    top: 27px;
+    transition: 0.2s ease;
+    z-index: 1;
+}
+
+.menu::before {
+    transform: rotate(0deg);
+}
+
+.menu::after {
+    transform: rotate(-90deg);
+}
+
+.menu.open {
+    opacity: 0.9;
+}
+
+.menu.open::before {
+    transform: rotate(45deg);
+}
+
+.menu.open::after {
+    transform: rotate(-45deg);
+}
+
+.menu.open .button {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#projectsBtn {
+    top: 0px;
+    left: 95px;
+}
+
+#curriculumBtn {
+    top: 85px;
+    transition-delay: 0.05s;
+  }
+
+#infoBtn {
+    top: 55px;
+    left: 60px;
+    transition-delay: 0.1s;
+}
+  
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: var(--myGrey);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    width: 0;
+    transition: 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28), 0.2s ease opacity, 0.2s cubic-bezier(0.08, 0.82, 0.17, 1) transform;
+}
+
+.button > img{
+    width: 40px;
+    height: 40px;
+}
+
+.button:hover {
+    transform: scale(1.1);
+}

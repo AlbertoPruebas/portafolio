@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./style/index.css">
+    <link rel="stylesheet" href="./style/menu.css">
+    <link rel="stylesheet" href="./style/welcome.css">
     <title>Alberto Soto "El Bto"</title>
 </head>
 <body>
-    <div class="menu" onclick="this.classList.toggle('open')">
-        <div class="button" id="projectsBtn" alt="Proyectos"></div>
-        <div class="button" id="infoBtn" alt="Informacion"></div>
-        <div class="button" id="curriculumBtn" alt="Curriculum"></div>
+    <div class="menu">
+        <div class="button" id="projectsBtn"><img src="./img/workImg.svg" title="Proyectos"></div>
+        <div class="button" id="infoBtn"><img src="./img/infoImg.svg" title="Informacion"></div>
+        <div class="button" id="curriculumBtn"><img src="./img/downloadImg.svg" title="Descarga CV"></div>
       </div>
     <div id="welcome">
-        <h1>Hola!<br>Soy Alberto Soto<br>Desarrollador<br>Te invito a conocerme!</h1>
+        <div class="console">
+            <label class="line lineTerminal">$ </label><label id="cursor">|</label>
+        </div>
     </div>
     <div id="about">Tengo 33 años y soy un aficionado a la tecnologia y todo lo que esto le rodea.</div>
     <div id="projects">Te muestro algunos de los proyectos que he realizado</div>

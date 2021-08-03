@@ -79,3 +79,58 @@ const createButton = (_class, _id, _text) => {
     if(_text != undefined) btn.innerHTML = _text
     return btn;
 }
+
+const writeLine = async (text,color,nowait = false,permanent = true) => {
+    let p = document.querySelector(".lineTerminal");
+    p.style.color = color;
+    for(let c=0;c<text.length;c++){
+        p.innerHTML = p.innerHTML + text[c];
+        if(!nowait) await wait(Math.random()*500);
+    }
+    if(permanent){
+        p.classList.toggle("lineTerminal");
+        newTerminalLine();
+    }
+}
+
+const newTerminalLine = () =>{
+    document.querySelector("#cursor").remove();
+    let newLine = document.createElement("label");
+    newLine.classList.add("line","lineTerminal");
+    document.querySelector(".console").appendChild(newLine);
+    let newCursor = document.createElement("label");
+    newCursor.id ="cursor";
+    newCursor.innerText = "|";
+    document.querySelector(".console").appendChild(newCursor);
+}
+
+function type() {
+    captionEl.html(caption.substr(0, captionLength++));
+    if(captionLength < caption.length+1) {
+        setTimeout('type()', 50);
+    } else {
+        captionLength = 0;
+        caption = '';
+    }
+}
+
+function testErasingEffect() {
+    caption = captionEl.html();
+    captionLength = caption.length;
+    if (captionLength>0) {
+        erase();
+    } else {
+        $('#caption').html("You didn't write anything to erase, but that's ok!");
+        setTimeout('testErasingEffect()', 1000);
+    }
+}
+
+function erase() {
+    captionEl.html(caption.substr(0, captionLength--));
+    if(captionLength >= 0) {
+        setTimeout('erase()', 50);
+    } else {
+        captionLength = 0;
+        caption = '';
+    }	
+}
