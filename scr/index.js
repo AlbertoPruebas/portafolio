@@ -5,7 +5,7 @@ document.querySelector(".menu").addEventListener("click",function(){this.classLi
 window.onload = async () => {
     await writeLine("Hola!","#9CD9F0");
     await writeLine("Soy Alberto Soto","#CDEE69");
-    await writeLine("Desarrollador","#CDEE69");
+    await writeLine("Desarrollador de Software","#CDEE69");
     await writeLine("[?] Te gustaria conocerme?","#E09690",true);
     await writeLine("(Scroll down to continue)","#E09690",true);
     await writeLine(">","#fff",false,false);

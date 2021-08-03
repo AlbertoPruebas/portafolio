@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="./style/index.css">
     <link rel="stylesheet" href="./style/menu.css">
     <link rel="stylesheet" href="./style/welcome.css">
+    <link rel="stylesheet" href="./style/about.css">
     <title>Alberto Soto "El Bto"</title>
 </head>
 <body>
@@ -18,7 +20,42 @@
             <label class="line lineTerminal">$ </label><label id="cursor">|</label>
         </div>
     </div>
-    <div id="about">Tengo 33 años y soy un aficionado a la tecnologia y todo lo que esto le rodea.</div>
+    <div id="about">
+        <div class="timeline-header">
+            <h2 class="timeline-header__title">Sobre mi</h2>
+            <h3 class="timeline-header__subtitle">Conoce un poco de mi historia</h3>
+        </div>
+        <div class="timelineScroll">
+            <div class="timeline-container" id="timeline-1">
+                <div class="timeline">
+                    <div class="timeline-item" data-text="En la Actualidad">
+                        <div class="timeline__content"><img class="timeline__img" src="./img/foto.jpg"/>
+                            <h2 class="timeline__content-title">2021</h2>
+                            <p class="timeline__content-desc">Continuo mi camino autodidacta, buscando aprender nuevas tecnologias, uqe me permitan ofrecer mas y mejores soluciones a mis clientes.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-text="Inicio en la Universidad">
+                        <div class="timeline__content"><img class="timeline__img" src="./img/unadm-logo.png"/>
+                            <h2 class="timeline__content-title">2019</h2>
+                            <p class="timeline__content-desc">Inicio mi formacion educativa en la Universidad Abierta y a Distancia de México, esto me permite poder aprender a mi ritmo y continuar experimentando con nuevas tecnologias.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-text="FATHER OF THE TURKS">
+                        <div class="timeline__content"><img class="timeline__img" src="http://www.volpeypir.com/upload/3732.jpg"/>
+                            <h2 class="timeline__content-title">1905</h2>
+                            <p class="timeline__content-desc">In 1905, Mustafa Kemal graduated from the War Academy in Istanbul with the rank of Staff Captain. Posted in Damascus, he started with several colleagues, a clandestinesociety called "Homeland and Freedom" to fight against the Sultan'sdespotism.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-text="FATHER OF THE TURKS">
+                        <div class="timeline__content"><img class="timeline__img" src="./img/unadm-logo.png"/>
+                            <h2 class="timeline__content-title">1908</h2>
+                            <p class="timeline__content-desc">In 1908 he helped the group of officers who toppled the Sultan. Mustafa Kemal'scareer flourished as he won his heroism in the far corners of the Ottoman Empire,including Albania and Tripoli. He also briefly served as a staff officer in Salonica andIstanbul and as a military attache in Sofia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="projects">Te muestro algunos de los proyectos que he realizado</div>
     <div id="contact">
         <div id="myData">

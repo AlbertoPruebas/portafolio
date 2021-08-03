@@ -104,33 +104,108 @@ const newTerminalLine = () =>{
     document.querySelector(".console").appendChild(newCursor);
 }
 
-function type() {
-    captionEl.html(caption.substr(0, captionLength++));
-    if(captionLength < caption.length+1) {
-        setTimeout('type()', 50);
-    } else {
-        captionLength = 0;
-        caption = '';
+const principalView = (e) => {
+    let selectors = {
+            id: e,
+            item: e.find(".timeline-item"),
+            activeClass: "timeline-item--active",
+            img: ".timeline__img"
+        };
+    selectors.item.eq(0).addClass(selectors.activeClass);
+    selectors.id.css(
+        "background-image",
+        "url(" +
+            selectors.item
+            .first()
+            .find(selectors.img)
+            .attr("src") +
+            ")"
+    );
+}
+
+const scrollView = (i) => {
+    min = $(this).offset().top;
+    max = $(this).height() + $(this).offset().top;
+    var that = $(this);
+    if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
+      selectors.item.removeClass(selectors.activeClass);
+      selectors.id.css(
+        "background-image",
+        "url(" +
+          selectors.item
+            .last()
+            .find(selectors.img)
+            .attr("src") +
+          ")"
+      );
+      selectors.item.last().addClass(selectors.activeClass);
+    } else if (pos <= max - 40 && pos >= min) {
+      selectors.id.css(
+        "background-image",
+        "url(" +
+          $(this)
+            .find(selectors.img)
+            .attr("src") +
+          ")"
+      );
+      selectors.item.removeClass(selectors.activeClass);
+      $(this).addClass(selectors.activeClass);
     }
 }
 
-function testErasingEffect() {
-    caption = captionEl.html();
-    captionLength = caption.length;
-    if (captionLength>0) {
-        erase();
-    } else {
-        $('#caption').html("You didn't write anything to erase, but that's ok!");
-        setTimeout('testErasingEffect()', 1000);
-    }
-}
 
-function erase() {
-    captionEl.html(caption.substr(0, captionLength--));
-    if(captionLength >= 0) {
-        setTimeout('erase()', 50);
-    } else {
-        captionLength = 0;
-        caption = '';
-    }	
-}
+(function($) {
+    $.fn.timeline = function() {
+      var selectors = {
+        id: $(this),
+        item: $(this).find(".timeline-item"),
+        activeClass: "timeline-item--active",
+        img: ".timeline__img"
+      };
+      selectors.item.eq(0).addClass(selectors.activeClass);
+      selectors.id.css(
+        "background-image",
+        "url(" +
+          selectors.item
+            .first()
+            .find(selectors.img)
+            .attr("src") +
+          ")"
+      );
+      var itemLength = selectors.item.length;
+      $(".timelineScroll").scroll(function() {
+        var max, min;
+        var pos = $(".timelineScroll").scrollTop();
+        selectors.item.each(function(i) {
+          min = $(this).offset().top;
+          max = $(this).height() + $(this).offset().top;
+          if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
+            selectors.item.removeClass(selectors.activeClass);
+            selectors.id.css(
+              "background-image",
+              "url(" +
+                selectors.item
+                  .last()
+                  .find(selectors.img)
+                  .attr("src") +
+                ")"
+            );
+            selectors.item.last().addClass(selectors.activeClass);
+          } else if (pos <= max - 40  && pos >= min) {
+            selectors.id.css(
+              "background-image",
+              "url(" +
+                $(this)
+                  .find(selectors.img)
+                  .attr("src") +
+                ")"
+            );
+            selectors.item.removeClass(selectors.activeClass);
+            $(this).addClass(selectors.activeClass);
+          }
+        });
+      });
+    };
+  })(jQuery);
+  
+  $("#timeline-1").timeline();
