@@ -1,6 +1,8 @@
 
-document.querySelector("#createContact").addEventListener("click",() => showContact());
-document.querySelector(".menu").addEventListener("click",function(){this.classList.toggle('open')})
+document.querySelector("#createContact").addEventListener("click", () => showContact());
+document.querySelector(".menu").addEventListener("click", function () { this.classList.toggle('open') })
+
+
 
 window.onload = () => {
     welcomeMesagge();
@@ -11,39 +13,47 @@ window.onload = () => {
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 const welcomeMesagge = async () => {
-    await writeLine("Hola!","#9CD9F0");
-    await writeLine("Soy Alberto Soto","#CDEE69");
-    await writeLine("Desarrollador de Software","#CDEE69");
-    await writeLine("[?] Te gustaria conocerme?","#E09690",true);
-    await writeLine("(Scroll down to continue)","#E09690",true);
-    await writeLine(">","#fff",false,false);
+    await writeLine("Hola!", "var(--myBlue)");
+    await writeLine("Soy Alberto Soto", "var(--myYellow)");
+    await writeLine("Desarrollador de Software", "var(--myYellow)");
+    await writeLine("[?] Te gustaria conocerme?", "var(--myPink)", true);
+    await writeLine("(Scroll down to continue)", "var(--myPink)", true);
+    await writeLine(">", "var(--myWhite)", false, false);
 }
 
 const insertItemsTimeline = async () => {
-    let item2021 = {
-        img:"url(https://unsplash.it/1920/500?image=11)",
-        id: 2021,
-        year: 2021,
-        title: "Avanzando por el Mundo",
-        text: "Me encuentro en constante capacitacion, buscando mejorar mis capacidades para poder ofrecer mas y mejores soluciones"
+    let currentYear = new Date().getFullYear();
+    let currentItem = {
+        img: "url(./img/world.gif)",
+        id: currentYear,
+        year: currentYear,
+        title: "En constante Mejora Continua",
+        text: "Como buen amante de la tecnologia, me gusta estar al día, para poder ofrecer mas y mejores soluciones."
     }
 
     let item2019 = {
-        img:"url(https://unsplash.it/1920/500?image=12)",
+        img: "url(./img/unadm-logo.png)",
         year: 2019,
         title: "Inicio mis Estudios Universitarios",
-        text: "Aun que siempre e preferido la autonomia, hay momentos en los que se requiere una guia, y la Universidad Abierta y a Distancia de México, me ofrece una mezacla perfecta de ambas cosas."
+        text: "Aun que siempre he sido autodidacta, hay momentos en los que se requiere una guia profesional, y la Universidad Abierta y a Distancia de México, me ofrece ambas cosas."
     }
 
     let item2016 = {
-        img:"url(https://unsplash.it/1920/500?image=13)",
+        img: "url(./img/code.gif)",
         year: 2016,
         title: "Mi primer proyecto Web",
-        text: "Tuve la oportunidad de realizar un proyecto web para poder agilizar mis actividades, este me permitio hacer mi curiosidad mas grande y poder conocer tecnologiass como PHP y MySQL."
+        text: "Tuve la oportunidad de realizar un proyecto web para poder agilizar mis actividades, este aumento mi curiosidad por conocer mas tecnologias, como PHP y MySQL."
     }
 
-    let arData = [item2021,item2019,item2016];
-    for(let element of arData){
+    let item2011 = {
+        img: "url()",
+        year: 2011,
+        title: "Inicia el Camino",
+        text: `Por accidente descubro que con el block de notas se puede hacer "MAGIA!"  🤪.`
+    }
+
+    let arData = [currentItem, item2019, item2016, item2011];
+    for (let element of arData) {
         elementTimeline(element);
     }
     await wait(1000);

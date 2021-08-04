@@ -1,27 +1,27 @@
-
 #welcome {
-    font-size: x-large;
     display: flex;
     align-items: center;
-    text-align: center;
+    justify-content: center;
     margin: 30px;
+    font-size: 6em;
+    font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
 }
 
 .console {
-    background-color: #151515;
+    background-color: var(--myBlack);
     box-sizing: border-box;
-    width: 900px;
-    height: 800px;
+    width: 85vw;
+    height: 90vh;
     margin: 0 auto;
     padding: 20px;
     text-align: left;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px 5px rgba(0, 0, 0, 0.2);
 }
-  
+
 .line {
     display: block;
-    font-size: 2em;
     margin: 25px 0px;
-    font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
 }
 
 .lineTerminal {
@@ -30,21 +30,37 @@
 }
 
 #cursor {
-    font-size: 2em;
     margin: 25px 5px;
-    color: var(--greenTerminal);
-    font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+    color: var(--MyGreen);
     animation: animated-cursor 1s infinite;
 }
 
 @keyframes animated-cursor {
-    0%{
+    0% {
         opacity: 0;
     }
-    50%{
+    50% {
         opacity: 1;
     }
-    100%{
+    100% {
         opacity: 0;
+    }
+}
+
+@media screen and (max-width: 1750px) {
+    #welcome {
+        font-size: 5.5em;
+    }
+}
+
+@media screen and (max-width: 1520px) {
+    #welcome {
+        font-size: 4.5em;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    #welcome {
+        font-size: 3.4em;
     }
 }

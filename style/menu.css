@@ -1,6 +1,5 @@
 .menu {
-    position: sticky;
-    top: 20px;
+    position: fixed;
     left: 50px;
     width: 0px;
     padding: 30px;
@@ -8,6 +7,10 @@
     border-radius: 50px;
     cursor: pointer;
     z-index: 1000;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .menu::before, .menu::after {
@@ -56,14 +59,14 @@
 #curriculumBtn {
     top: 85px;
     transition-delay: 0.05s;
-  }
+}
 
 #infoBtn {
     top: 55px;
     left: 60px;
     transition-delay: 0.1s;
 }
-  
+
 .button {
     display: flex;
     justify-content: center;
@@ -80,7 +83,7 @@
     transition: 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28), 0.2s ease opacity, 0.2s cubic-bezier(0.08, 0.82, 0.17, 1) transform;
 }
 
-.button > img{
+.button>img {
     width: 40px;
     height: 40px;
 }
