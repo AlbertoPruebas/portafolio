@@ -88,3 +88,7 @@ body {
     background-color: #999;
     color: black;
 }
+
+::-webkit-scrollbar {
+	width: 0px;
+}
