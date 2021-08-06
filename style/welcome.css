@@ -2,19 +2,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 30px;
     font-size: 6em;
     font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+    position: sticky;
+    z-index: 1000;
 }
 
 .console {
     background-color: var(--myBlack);
     box-sizing: border-box;
-    width: 85vw;
-    height: 90vh;
-    margin: 0 auto;
-    padding: 20px;
     text-align: left;
+    margin: 30px;
+    height: 90vh;
+    width: 85vw;
     border-radius: 10px;
     box-shadow: 0 5px 25px 5px rgba(0, 0, 0, 0.2);
 }
@@ -27,12 +27,16 @@
 .lineTerminal {
     display: inline;
     margin: 25px 0px;
+    position: sticky;
+    top: 0;
 }
 
 #cursor {
     margin: 25px 5px;
     color: var(--MyGreen);
     animation: animated-cursor 1s infinite;
+    position: sticky;
+    top: 0;
 }
 
 @keyframes animated-cursor {

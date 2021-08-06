@@ -6,12 +6,6 @@
     margin: 30px;
 }
 
-.aboutTitle {
-    font-size: 5em;
-    margin: 0;
-    color: var(--myYellow);
-}
-
 .swiper-container {
     width: 85vw;
     font-size: 3em;

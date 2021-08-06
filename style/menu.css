@@ -1,6 +1,7 @@
 .menu {
     position: fixed;
-    left: 50px;
+    left: 2vw;
+    top: 2vh;
     width: 0px;
     padding: 30px;
     background: var(--myGrey);
@@ -11,6 +12,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    z-index: 100000;
 }
 
 .menu::before, .menu::after {

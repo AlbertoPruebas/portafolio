@@ -1,0 +1,12 @@
+#contact {
+    position: sticky;
+    bottom: 0;
+    background-color: var(--myBlack);
+    z-index: 100000;
+    height: 3vh;
+}
+
+footer {
+    color: var(--myYellow);
+    margin: auto;
+}
