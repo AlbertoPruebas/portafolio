@@ -1,6 +1,6 @@
 .menu {
     position: fixed;
-    left: 2vw;
+    right: 2vw;
     top: 2vh;
     width: 0px;
     padding: 30px;
@@ -55,7 +55,7 @@
 
 #projectsBtn {
     top: 0px;
-    left: 95px;
+    right: 95px;
 }
 
 #curriculumBtn {
@@ -65,7 +65,7 @@
 
 #infoBtn {
     top: 55px;
-    left: 60px;
+    right: 60px;
     transition-delay: 0.1s;
 }
 

@@ -6,7 +6,7 @@
     flex-direction: column;
 }
 
-.container {
+.card_container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,49 +15,21 @@
     border-radius: 10px;
     width: 85vw;
     height: 50vh;
+    flex-wrap: wrap;
 }
 
-.container .card {
+.skillTitle{
+    flex-basis: 100%;
+    height: 5vh;
+}
+
+.card {
     transition: all 1s ease-in-out;
     height: 20vh;
     position: relative;
 }
 
-.container .card .card__head {
-    color: black;
-    background: rgba(255, 30, 173, 0.75);
-    padding: .5em;
-    transform: rotate(-90deg);
-    transform-origin: 0% 0%;
-    transition: all 0.5s ease-in-out;
-    min-width: 10%;
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    font-size: 1em;
-    white-space: nowrap;
-}
-
-.container .card:hover {
-    flex-grow: .1;
-    /*transform: scale(1.3);*/
-}
-
-.container .card:hover img {
-    filter: grayscale(0);
-}
-
-.container .card:hover .card__head {
-    text-align: center;
-    top: calc(100% - 2em);
-    color: white;
-    background: rgba(0, 0, 0, 0.5);
-    font-size: 2em;
-    transform: rotate(0deg) skew(-5deg);
-}
-
-.container .card img {
+.card_img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -65,6 +37,137 @@
     filter: grayscale(100%);
 }
 
-.container .card:not(:nth-child(5)) {
-    margin-right: 1em;
+.card_content {
+    color: var(--myWhite);
+    background: var(--myRed);
+    padding: .5em;
+    transform: rotate(-90deg);
+    transform-origin: 0% 0%;
+    transition: all 0.5s ease-in-out;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 1em;
+    white-space: nowrap;
+    width: 100px;
+}
+
+.lvl_star {
+    display: none;
+}
+
+.card:hover {
+    flex-grow: .1;
+}
+
+.card:hover .card_img {
+    filter: grayscale(0);
+}
+
+.card:hover .card_content {
+    top: calc(100% - 2em);
+    background: rgba(0, 0, 0, 0.5);
+    transform: rotate(0deg) skew(-5deg);
+    height: 17px;
+    width: 150px;
+}
+
+.card:hover .lvl_star {
+    display: block;
+}
+
+.card:hover .card_title {
+    display: none;
+}
+
+.lvl_star::before {
+    text-align: left;
+    padding: .5em;
+    unicode-bidi: bidi-override;
+    font-size: 1.5em;
+    height: 25px;
+    top: calc(100% - 2em);
+    left: 0;
+    width: 100px;
+    position: absolute;
+    text-shadow: 0 1px 0 #a2a2a2;
+    content: 'Exp: ★★★★★';
+    opacity: .3;
+    color: #c5c5c5;
+}
+
+.lvl1::after {
+    text-align: left;
+    padding: .5em;
+    unicode-bidi: bidi-override;
+    font-size: 1.5em;
+    height: 25px;
+    top: calc(100% - 2em);
+    width: 100px;
+    left: 0;
+    position: absolute;
+    text-shadow: 0 1px 0 #a2a2a2;
+    content: 'Exp: ★';
+    color: gold;
+}
+
+.lvl2::after {
+    text-align: left;
+    padding: .5em;
+    unicode-bidi: bidi-override;
+    font-size: 1.5em;
+    height: 25px;
+    top: calc(100% - 2em);
+    width: 100px;
+    left: 0;
+    position: absolute;
+    text-shadow: 0 1px 0 #a2a2a2;
+    content: 'Exp: ★★';
+    color: gold;
+}
+
+.lvl3::after {
+    text-align: left;
+    padding: .5em;
+    unicode-bidi: bidi-override;
+    font-size: 1.5em;
+    height: 25px;
+    top: calc(100% - 2em);
+    width: 100px;
+    left: 0;
+    position: absolute;
+    text-shadow: 0 1px 0 #a2a2a2;
+    content: 'Exp: ★★★';
+    color: gold;
+}
+
+.lvl4::after {
+    text-align: left;
+    padding: .5em;
+    unicode-bidi: bidi-override;
+    font-size: 1.5em;
+    height: 25px;
+    top: calc(100% - 2em);
+    width: 100px;
+    left: 0;
+    position: absolute;
+    text-shadow: 0 1px 0 #a2a2a2;
+    content: 'Exp: ★★★★';
+    color: gold;
+}
+
+.lvl5::after {
+    text-align: left;
+    padding: .5em;
+    unicode-bidi: bidi-override;
+    font-size: 1.5em;
+    height: 25px;
+    top: calc(100% - 2em);
+    width: 100px;
+    left: 0;
+    position: absolute;
+    text-shadow: 0 1px 0 #a2a2a2;
+    content: 'Exp: ★★★★★';
+    color: gold;
 }

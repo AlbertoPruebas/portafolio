@@ -82,7 +82,7 @@ const createButton = (_class, _id, _text) => {
 
 
 
-
+//* Interact with console */
 const writeLine = async (text, color, nowait = false, permanent = true) => {
     let p = document.querySelector(".lineTerminal");
     p.style.color = color;
@@ -108,6 +108,8 @@ const newTerminalLine = () => {
     document.querySelector(".console").appendChild(newCursor);
 }
 
+
+/* Add elements to Time line */
 const elementTimeline = (data) => {
     let divTime = document.createElement("div");
     divTime.className = "swiper-slide"
@@ -136,18 +138,29 @@ const elementTimeline = (data) => {
     document.querySelector(".swiper-wrapper").appendChild(divTime)
 }
 
-const startSwiper = () => {
-    const timelineSwiper = new Swiper(".swiper-container", {
-        direction: "vertical",
-        slidesPerView: 1,
-        speed: 1600,
-        effect: "flip",
-        pagination: '.swiper-pagination',
-        paginationBulletRender: function (swiper, index, className) {
-          let year = document.querySelectorAll('.swiper-slide')[index].querySelector(".timeline-year").innerText;
-          return '<span class="' + className + '">' + year + '</span>';
-        },
-        paginationClickable: true
-    });
-}
+const addSkill = (data) => {
+    let card = document.createElement("div");
+    card.className = "card"
 
+    let card_img = document.createElement("img");
+    card_img.className = "card_img"
+    card_img.src = data.img
+
+    let card_content = document.createElement("div");
+    card_content.className = "card_content"
+
+    let card_title = document.createElement("label");
+    card_title.className = "card_title"
+    card_title.innerText = data.title;
+
+    let lvl_star = document.createElement("div");
+    lvl_star.classList.add("lvl_star", `lvl${data.lvl}`)
+
+    card_content.appendChild(card_title);
+    card_content.appendChild(lvl_star);
+
+    card.appendChild(card_img);
+    card.appendChild(card_content);
+
+    document.querySelector(".card_container").appendChild(card);
+}

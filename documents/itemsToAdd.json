@@ -1,0 +1,79 @@
+{
+    "skills": [
+        {
+            "img": "./img/html.svg",
+            "title": "HTML",
+            "lvl": 4,
+            "exp": true
+        },
+        {
+            "img": "./img/javascript.svg",
+            "title": "JavaScript",
+            "lvl": 4,
+            "exp": true
+        },
+        {
+            "img": "./img/mysql.svg",
+            "title": "MySQL",
+            "lvl": 3,
+            "exp": true
+        },
+        {
+            "img": "./img/node-js.svg",
+            "title": "Node.js",
+            "lvl": 3,
+            "exp": true
+        },
+        {
+            "img": "./img/react.svg",
+            "title": "React",
+            "lvl": 3,
+            "exp": true
+        },
+        {
+            "img": "./img/python.svg",
+            "title": "Python",
+            "lvl": 1,
+            "exp": false
+        },
+        {
+            "img": "./img/mongodb.svg",
+            "title": "MongoDB",
+            "lvl": 1,
+            "exp": false
+        },
+        {
+            "img": "./img/vba_logo.png",
+            "title": "VBA",
+            "lvl": 4,
+            "exp": false
+        }
+        ],
+    "timelineItems": [
+        {
+            "img": "url(./img/world.gif)",
+            "id": 0,
+            "year": 0,
+            "title": "En constante Mejora Continua",
+            "text": "Como buen amante de la tecnologia, me gusta estar al día, para poder ofrecer mas y mejores soluciones."
+        },
+        {
+            "img": "url(./img/unadm-logo.png)",
+            "year": 2019,
+            "title": "Inicio mis Estudios Universitarios",
+            "text": "Aun que siempre he sido autodidacta, hay momentos en los que se requiere una guia profesional, y la Universidad Abierta y a Distancia de México, me ofrece ambas cosas."
+        },
+        {
+            "img": "url(./img/code.gif)",
+            "year": 2016,
+            "title": "Mi primer proyecto Web",
+            "text": "Tuve la oportunidad de realizar un proyecto web para poder agilizar mis actividades, este aumento mi curiosidad por conocer mas tecnologias, como PHP y MySQL."
+        },
+        {
+            "img": "url()",
+            "year": 2011,
+            "title": "Inicia el Camino",
+            "text": "Por accidente descubro que con el block de notas se puede hacer MAGIA!  🤪."
+        }
+    ]
+}

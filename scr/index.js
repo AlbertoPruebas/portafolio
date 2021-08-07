@@ -1,11 +1,11 @@
 //document.querySelector("#createContact").addEventListener("click", () => showContact());
 document.querySelector(".menu").addEventListener("click", function () { this.classList.toggle('open') })
+document.querySelector("#curriculumBtn").addEventListener("click", () => downloadCV());
 
-
-
-window.onload = () => {
+window.onload = async () => {
     welcomeMesagge();
-    insertItemsTimeline();
+    await insertItemsTimeline();
+    await insertSkills();
     startSwiper();
     document.addEventListener("scroll", () => { interactiveScroll() })
 }
@@ -23,43 +23,26 @@ const welcomeMesagge = async () => {
 
 const insertItemsTimeline = async () => {
     let currentYear = new Date().getFullYear();
-    let currentItem = {
-        img: "url(./img/world.gif)",
-        id: currentYear,
-        year: currentYear,
-        title: "En constante Mejora Continua",
-        text: "Como buen amante de la tecnologia, me gusta estar al día, para poder ofrecer mas y mejores soluciones."
-    }
-
-    let item2019 = {
-        img: "url(./img/unadm-logo.png)",
-        year: 2019,
-        title: "Inicio mis Estudios Universitarios",
-        text: "Aun que siempre he sido autodidacta, hay momentos en los que se requiere una guia profesional, y la Universidad Abierta y a Distancia de México, me ofrece ambas cosas."
-    }
-
-    let item2016 = {
-        img: "url(./img/code.gif)",
-        year: 2016,
-        title: "Mi primer proyecto Web",
-        text: "Tuve la oportunidad de realizar un proyecto web para poder agilizar mis actividades, este aumento mi curiosidad por conocer mas tecnologias, como PHP y MySQL."
-    }
-
-    let item2011 = {
-        img: "url()",
-        year: 2011,
-        title: "Inicia el Camino",
-        text: `Por accidente descubro que con el block de notas se puede hacer "MAGIA!"  🤪.`
-    }
-
-    let arData = [currentItem, item2019, item2016, item2011];
-    for (let element of arData) {
+    let items = await getData("./documents/itemsToAdd.json")
+    for (let element of items.timelineItems) {
+        if (element.year == 0) {
+            element.year = currentYear;
+            element.id = currentYear;
+        }
         elementTimeline(element);
     }
-    await wait(1000);
+    await wait(500);
 }
 
-const interactiveScroll = async () => {
+const insertSkills = async () => {
+    let items = await getData("./documents/itemsToAdd.json")
+    for (let element of items.skills) {
+        addSkill(element);
+    }
+    await wait(500);
+}
+
+const interactiveScroll = () => {
     let lt = document.querySelector(".lineTerminal");
     let csl = document.querySelector("#welcome");
     let lttop = isInViewport(lt, "top");
@@ -80,9 +63,9 @@ const proximity = async () => {
     }
     let about = new elementInVP(document.querySelector("#about"), "> Sobre Mi");
     let skill = new elementInVP(document.querySelector("#skills"), "> Habilidades");
-    let vpSize = window.innerHeight * .60;
+    let vpSize = window.innerHeight * .6;
     let e;
-    for (let element of [about, skill]) {
+    for (let element of [skill,about]) {
         if (isInViewport(element.element, "top") <= vpSize) {
             e = element;
         }
@@ -92,7 +75,6 @@ const proximity = async () => {
     } else {
         await writeLine(e.text, "var(--myWhite)", true, false);
     }
-
 }
 
 const isInViewport = (el, reference) => {
@@ -105,109 +87,35 @@ const textInTerminal = () => {
     return t.innerText;
 }
 
+const downloadCV = () => {
+    let link = document.createElement("a");
+    link.setAttribute('download', "Alberto Soto CV");
+    link.href = "./documents/Alberto Soto Ortega.pdf";
+    link.click();
+    link.remove();
+}
+
+/* Configure and initialize Swiper lib */
+const startSwiper = () => {
+    const timelineSwiper = new Swiper(".swiper-container", {
+        direction: "vertical",
+        slidesPerView: 1,
+        speed: 1600,
+        effect: "flip",
+        pagination: '.swiper-pagination',
+        paginationBulletRender: function (swiper, index, className) {
+            let year = document.querySelectorAll('.swiper-slide')[index].querySelector(".timeline-year").innerText;
+            return '<span class="' + className + '">' + year + '</span>';
+        },
+        paginationClickable: true
+    });
+}
+
 /*Configuration for background animation*/
-particlesJS("particles-js", {
-    particles: {
-        number: {
-            value: 80,
-            density: {
-                enable: true,
-                value_area: 700
-            }
-        },
-        color: {
-            value: "#ffffff"
-        },
-        shape: {
-            type: "circle",
-            stroke: {
-                width: 0,
-                color: "#000000"
-            },
-            polygon: {
-                nb_sides: 5
-            }
-        },
-        opacity: {
-            value: 0.5,
-            random: false,
-            anim: {
-                enable: false,
-                speed: 0.1,
-                opacity_min: 0.1,
-                sync: false
-            }
-        },
-        size: {
-            value: 3,
-            random: true,
-            anim: {
-                enable: false,
-                speed: 10,
-                size_min: 0.1,
-                sync: false
-            }
-        },
-        line_linked: {
-            enable: true,
-            distance: 150,
-            color: "#ffffff",
-            opacity: 0.4,
-            width: 1
-        },
-        move: {
-            enable: true,
-            speed: 2,
-            direction: "none",
-            random: false,
-            straight: false,
-            out_mode: "out",
-            bounce: false,
-            attract: {
-                enable: false,
-                rotateX: 600,
-                rotateY: 1200
-            }
-        }
-    },
-    interactivity: {
-        detect_on: "canvas",
-        events: {
-            onhover: {
-                enable: true,
-                mode: "grab"
-            },
-            onclick: {
-                enable: true,
-                mode: "push"
-            },
-            resize: true
-        },
-        modes: {
-            grab: {
-                distance: 140,
-                line_linked: {
-                    opacity: 1
-                }
-            },
-            bubble: {
-                distance: 400,
-                size: 40,
-                duration: 2,
-                opacity: 8,
-                speed: 3
-            },
-            repulse: {
-                distance: 200,
-                duration: 0.4
-            },
-            push: {
-                particles_nb: 4
-            },
-            remove: {
-                particles_nb: 2
-            }
-        }
-    },
-    retina_detect: true
-});
+particlesJS.load("particles-js", "../documents/particlesCnfg.json");
+
+const getData = async origin => {
+    let file = await fetch(origin);
+    let jsonObect = await file.json();
+    return jsonObect;
+}
